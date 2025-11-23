@@ -25,3 +25,8 @@ end date must be **after** the start date.
 - Use Lombok for convenience to create the necessary constructors, getters and setters.
 - Write one repository per entity.
 - Test everything! Each builder and repository must have at least one (succeeding) test case.
+
+### Instructions
+
+To get started, clone this repository and complete the tasks listed below.
+The solution will be available in a separate *solution* branch (tbd).
