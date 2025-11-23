@@ -65,7 +65,7 @@ entity Birthday <RichType> <<(R, ffccdd)>> {
     value: ZonedDateTime
 }
 
-Birthday : { age >= 16 }
+Birthday : { age >= 14 }
 
 ' ===============================================
 ' Enumerations
@@ -90,12 +90,12 @@ enum GamePlatform {
 ' Relations
 ' ===============================================
 
-Medium <|-- Movie
-Medium <|-- Videogame
+Medium <|-- Movie : is a
+Medium <|-- Videogame : is a
 
-Customer *-- Address
+Customer *-- Address : has
 
-Rental *-- RentalPeriod
+Rental *-- RentalPeriod : is rented for
 
 Customer --o Rental : rents >
 Medium   --o Rental : < rented item
