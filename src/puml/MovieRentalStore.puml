@@ -1,0 +1,103 @@
+@startuml
+
+hide empty methods
+hide empty attributes
+
+entity Medium <Entity> {
+    title: String
+    releaseYear: Int
+    genre: String
+}
+
+entity Movie <Entity> {
+    director: String
+    durationMinutes: Int
+    ageRating: AgeRating
+}
+
+entity Videogame <Entity> {
+    platform: GamePlatform
+    publisher: String
+    ageRating: AgeRating
+}
+
+entity Rental <Entity> {
+    rentalPeriod: RentalPeriod <<nn>>
+    price: BigDecimal
+    customer: Customer <<nn>>
+    medium: Medium <<nn>>
+}
+
+entity Customer <Entity> {
+    firstName: String
+    lastName: String
+    birthday: Birthday
+    email: EmailAddress
+    rentedItems: List<Rental>
+}
+
+' ===============================================
+' Value Objects
+' ===============================================
+
+entity Address <ValueObject> <<(V, bbFFcc)>> {
+    street: String
+    postalCode: String
+    city: String
+}
+
+entity RentalPeriod <ValueObject> <<(V, bbFFcc)>> {
+    start: ZonedDateTime <<nn>>
+    end: ZonedDateTime <<n>>
+}
+
+RentalPeriod : { start < end }
+
+' ===============================================
+' Rich Types
+' ===============================================
+
+entity EmailAddress <RichType> <<(R, ffccdd)>> {
+    value: String
+}
+
+entity Birthday <RichType> <<(R, ffccdd)>> {
+    value: ZonedDateTime
+}
+
+Birthday : { age >= 16 }
+
+' ===============================================
+' Enumerations
+' ===============================================
+
+enum AgeRating {
+    USK0
+    USK6
+    USK12
+    USK16
+    USK18
+}
+
+enum GamePlatform {
+    PC
+    PLAYSTATION
+    XBOX
+    SWITCH
+}
+
+' ===============================================
+' Relations
+' ===============================================
+
+Medium <|-- Movie
+Medium <|-- Videogame
+
+Customer *-- Address
+
+Rental *-- RentalPeriod
+
+Customer --o Rental : rents >
+Medium   --o Rental : < rented item
+
+@enduml
