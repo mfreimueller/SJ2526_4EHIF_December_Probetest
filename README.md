@@ -29,4 +29,4 @@ end date must be **after** the start date.
 ### Instructions
 
 To get started, clone this repository and complete the tasks listed above.
-The solution will be available in a separate *solution* branch (tbd).
+The solution will be available in a separate *solution* branch.
