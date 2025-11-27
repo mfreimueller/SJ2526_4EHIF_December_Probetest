@@ -8,7 +8,7 @@ Below you find the PUML diagram that describes the entities of this application.
 ![PUML of the application](src/puml/MovieRentalStore.png)
 
 The core use case of this application is that customers can rent movies, video games or some other
-not specified media. Because we want to support different types of media, we provide a super class
+not specified media (yet). Because we want to support different types of media, we provide a super class
 "Medium" and, via inheritance, add specific subtypes, such as Movie and Videogame.
 
 Each medium that is rented by a customer is represented by "Rental". A rental contains the customer,
@@ -28,5 +28,5 @@ end date must be **after** the start date.
 
 ### Instructions
 
-To get started, clone this repository and complete the tasks listed below.
+To get started, clone this repository and complete the tasks listed above.
 The solution will be available in a separate *solution* branch (tbd).
