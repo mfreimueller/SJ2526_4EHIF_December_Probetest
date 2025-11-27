@@ -5,13 +5,13 @@ hide empty attributes
 
 entity Medium <Entity> {
     title: String
-    releaseYear: Int
-    genre: String
+    releaseYear: Int <<nn>>
+    genre: String <<min = 1888>>
 }
 
 entity Movie <Entity> {
     director: String
-    durationMinutes: Int
+    durationInMinutes: Int
     ageRating: AgeRating
 }
 
@@ -31,6 +31,7 @@ entity Rental <Entity> {
 entity Customer <Entity> {
     firstName: String
     lastName: String
+    address: Address
     birthday: Birthday
     email: EmailAddress
     rentedItems: List<Rental>
