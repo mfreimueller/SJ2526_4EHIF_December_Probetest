@@ -31,6 +31,9 @@ public abstract class Medium {
     @EmbeddedId
     private MediumId id;
 
+    @Version
+    private Long version;
+
     @NotNull
     private String title;
 

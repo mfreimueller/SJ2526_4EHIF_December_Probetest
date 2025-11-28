@@ -20,6 +20,9 @@ public class Rental {
     @EmbeddedId
     private RentalId id;
 
+    @Version
+    private Long version;
+
     private RentalPeriod rentalPeriod;
     private BigDecimal price;
 

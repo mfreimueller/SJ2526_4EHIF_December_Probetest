@@ -21,6 +21,9 @@ public class Customer {
     @EmbeddedId
     private CustomerId id;
 
+    @Version
+    private Long version;
+
     private String firstname;
     private String lastname;
 
